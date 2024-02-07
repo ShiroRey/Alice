@@ -47,17 +47,20 @@ label start:
     scene black with Dissolve(.5)
     me "*Вздох* Неужели сбежала?"
     "Нужно найти ее, иначе останусь без денег..."
-    $ i = 0
+
+    $ visited_pier = False
+    $ visited_square = False
 
     label menu_cross:
     menu:
         me "Куда мне идти?"
         "На пристань":
-            if i > 0:
+            if visited_pier:
                 me "Я здесь уже был..."
             else:
+                scene
                 me "Никого нет"
-                $ i += 1
+                $ visited_pier = True
 
             jump menu_cross
 
@@ -66,12 +69,12 @@ label start:
             jump village_prolog
 
         "На площадь":
-            if i > 1:
+            if visited_square:
                 me "Я здесь уже был..."
             else: 
+                scene
                 me "Не думаю что она придет сюда, ведь здесь ее должны казнить"
-                $ i += 1
-
+                $ visited_square = True
             jump menu_cross
             
 
