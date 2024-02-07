@@ -102,14 +102,16 @@ label village_prolog:
     "Но у нее была надежда на то, что рано или поздно она сможет доказать свою невиновность и вернуться к обычной жизни."
     scene black with Dissolve(0.5)
 
-
+style test_style:
+    color "#77001e"
 
 label village_after:
     scene black with Dissolve(0.5)
-    "{sc}wdfdbdbdghhghfgh?{/sc}"
+    "{sc}{=test_style}Что ты тут забыл?{/=test_style}{/sc}"
     scene winter_forest with Dissolve(0.5)
 
     scene hunter_house with Dissolve(0.5)
+
 
 
 label end:
@@ -128,4 +130,3 @@ transform flip:
     yalign 1.0
     linear 1.0 xalign 0.0
     xzoom -1.0
-
