@@ -166,3 +166,5 @@ game/saves
 *.rpymc
 *.rpyb
 *.bak
+
+KineticText/

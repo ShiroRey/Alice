@@ -54,7 +54,7 @@ label start:
         me "Куда мне идти?"
         "На пристань":
             me "Никого нет"
-            jump village_prolog
+            call start
 
         "В поле":
             me "Похоже она где то здесь"
@@ -62,8 +62,8 @@ label start:
 
         "На площадь":
             me "Не думаю что она придет сюда, ведь здесь ее должны казнить"
-            jump village_prolog
-
+            call start
+            
 
 
 label village_prolog:
@@ -100,8 +100,28 @@ label village_prolog:
     play music "rain.mp3" fadein 1
     "Она стремились оставаться незаметной и шла в удаленные и заброшенные места, где она могла скрыться от инквизиции."
     "Но у нее была надежда на то, что рано или поздно она сможет доказать свою невиновность и вернуться к обычной жизни."
+    scene black with Dissolve(0.5)
 
 
+
+label village_after:
+    scene black with Dissolve(0.5)
+    "{sc}wdfdbdbdghhghfgh?{/sc}"
+    scene winter_forest with Dissolve(0.5)
+
+    scene hunter_house with Dissolve(0.5)
+
+
+label end:
+    python:
+        end = renpy.input("restart?")
+    scene black
+    if end == 'y':
+        jump start
+    else:
+        return
+
+    
 
 transform flip:
     xalign 0.5
