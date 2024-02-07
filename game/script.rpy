@@ -47,14 +47,19 @@ label start:
     scene black with Dissolve(.5)
     me "*Вздох* Неужели сбежала?"
     "Нужно найти ее, иначе останусь без денег..."
+    $ i = 0
 
-
-
+    label menu_cross:
     menu:
         me "Куда мне идти?"
         "На пристань":
-            me "Никого нет"
-            call start
+            if i > 0:
+                me "Я здесь уже был..."
+            else:
+                me "Никого нет"
+                $ i += 1
+
+            jump menu_cross
 
         "В поле":
             me "Похоже она где то здесь"
@@ -62,9 +67,8 @@ label start:
 
         "На площадь":
             me "Не думаю что она придет сюда, ведь здесь ее должны казнить"
-            call start
+            jump menu_cross
             
-
 
 label village_prolog:
     play music "birds.mp3" fadein 1
