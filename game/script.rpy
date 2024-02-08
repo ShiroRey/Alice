@@ -61,12 +61,11 @@ label start:
                 scene
                 me "Никого нет"
                 $ visited_pier = True
-
             jump menu_cross
 
         "В поле":
             me "Похоже она где то здесь"
-            jump village_prolog
+            jump final_prolg
 
         "На площадь":
             if visited_square:
@@ -76,25 +75,32 @@ label start:
                 me "Не думаю что она придет сюда, ведь здесь ее должны казнить"
                 $ visited_square = True
             jump menu_cross
-            
+
+
+label final_prolg:
+    scene field2 with Dissolve(.5)
+    "Как она собралась убежать в такую погоду?"
+    ""
+
+
 
 label village_prolog:
     play music "birds.mp3" fadein 1
     scene village_prolog with Dissolve(.5)
 
     "Алиса была молодой, но решительной девушкой. Она была красивой, с благородными чертами лица, белыми волосами и красными глазами."
-    show al_happy at center with Dissolve(.5)
+    show alice at center with Dissolve(.5)
     "Алиса росла в заботливой семье, родители всегда старались создавать для нее уют и радость."
     "Они придавали большое значение образованию и опыту, и поэтому Алиса была образованной и любознательной."
     "Она умела читать и писать, она любила исследовать окружающий мир и мечтала о приключениях."
     "В свои шестнадцать лет она еще не знала больших проблем и не понимала суровости мира."
-    "Пока {cps=10}{color=#8B0000}ИНКВИЗИЦИЯ{/color}{/cps} {cps=20}не явилась в ее деревню.{/cps}"
+    "Пока {cps=15}{color=#8B0000}ИНКВИЗИЦИЯ{/color}{/cps} не явилась в ее деревню."
     stop music fadeout 1
 
     scene black with Dissolve(1.5)
 
     scene bed with Dissolve(1.5)
-    show al_angry at center with Dissolve(.5)
+    show alice at center with Dissolve(.5)
     play music "sad.mp3" fadein 1
     "Вместо того чтобы поддаться страху или позволить инквизиции убить ее без борьбы, Алиса решила сбежать."
     "Она знала, что это будет опасно, но она была готова рискнуть, чтобы спасти свою жизнь и сохранить надежду на будущее."
@@ -108,14 +114,15 @@ label village_prolog:
 
     scene black with Dissolve(1.5)
     scene field2 with Dissolve(1.5)
-    show al_angry at flip with Dissolve(1.5)
+
     play music "rain.mp3" fadein 1
     "Она стремились оставаться незаметной и шла в удаленные и заброшенные места, где она могла скрыться от инквизиции."
     "Но у нее была надежда на то, что рано или поздно она сможет доказать свою невиновность и вернуться к обычной жизни."
     scene black with Dissolve(0.5)
 
+
 style test_style:
-    color "#77001e"
+    color "#b3000f"
 
 label village_after:
     scene black with Dissolve(0.5)
