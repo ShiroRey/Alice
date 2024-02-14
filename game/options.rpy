@@ -12,13 +12,14 @@
 ##
 ## Символы "_()", окружающие название, отмечают его как пригодное для перевода.
 
-define config.name = _("Alice in the Underworld")
+define config.name = _("Alice in the \n Underworld")
 
-
+    
 ## Определяет, показывать ли заголовок, данный выше, на экране главного меню.
 ## Установите на False, чтобы спрятать заголовок.
 
 define gui.show_name = True
+
 
 
 ## Версия игры.

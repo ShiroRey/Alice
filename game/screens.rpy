@@ -104,6 +104,7 @@ screen say(who, what):
 
             window:
                 id "namebox"
+                xpos 0.45
                 style "namebox"
                 text who id "who"
 
@@ -388,11 +389,12 @@ style main_menu_frame:
 
     background "gui/overlay/main_menu.png"
 
+#Название игры
 style main_menu_vbox:
-    xalign 1.0
+    xalign 0.025
     xoffset -30
     xmaximum 1200
-    yalign 1.0
+    yalign 0.1
     yoffset -30
 
 style main_menu_text:
