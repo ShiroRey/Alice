@@ -92,12 +92,10 @@ label start:
 
 
 label final_prolg:
+    play music "rain.mp3" fadein 1
     scene field2 with Dissolve(.5)
     "Как она собралась убежать в такую погоду?"
-    ""                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-
-
-
+    ""
 label village_prolog:
     play music "birds.mp3" fadein 1
     scene village_prolog with Dissolve(.5)
@@ -126,13 +124,18 @@ label village_prolog:
     "Этим же вечером Алиса собрала свои вещи и ушла из деревни..."
     stop music fadeout 1
 
-    scene black with Dissolve(1.5)
-    scene field2 with Dissolve(1.5)
 
-    play music "rain.mp3" fadein 1
-    "Она стремились оставаться незаметной и шла в удаленные и заброшенные места, где она могла скрыться от инквизиции."
-    "Но у нее была надежда на то, что рано или поздно она сможет доказать свою невиновность и вернуться к обычной жизни."
-    scene black with Dissolve(0.5)
+label first_act:
+    scene black
+    "{fi}-Воспоминания потеряны-{/fi}"
+    scene winter_forest with Dissolve(.5)
+    me "..."
+    me "Что это за место? Я только что был в ..."
+    me "Странно."
+    me "Почему я не могу вспомнить?"
+    "Я огляделся вокруг, но понял что меня окружает только лес."
+
+
 
 
 style test_style:
@@ -140,7 +143,7 @@ style test_style:
 
 label village_after:
     scene black with Dissolve(0.5)
-    "{sc}{=test_style}Что ты тут забыл?{/=test_style}{/sc}"
+    "{sc}{=test_style}Забавно{/=test_style}{/sc}"
     scene winter_forest with Dissolve(0.5)
 
     scene hunter_house with Dissolve(0.5)
