@@ -11,17 +11,17 @@ define me = Character('[name]', color="#c8f4ff")
 # а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
 
 # Игра начинается здесь:
-#label splashscreen:
-#     scene black
-#     pause 1.0
-#
-#     show text "-Shiro-" with dissolve
-#     pause 2.0
-#
-#     hide text with dissolve
-#     pause 1.0
-#
-#     return
+label splashscreen:
+    scene black with Dissolve(1.0)
+    pause 0.5
+
+    scene logo2 with Dissolve(1.5)
+    pause 1.0
+
+    scene black with Dissolve(1.0)
+    pause 0.5
+
+    return
     
 label start:
 
@@ -32,7 +32,7 @@ label start:
     play music "hor.mp3" fadein 1
     "Инквизиция была организацией, чьей главной целью являлась борьба с черной магией и ересью, ведущая массовые расследования и проведение судебных процессов во времена Средневековья."
     "Это был темный период в истории, когда люди считали, что ведьмы и колдуны обладают сверхъестественными способностями и могут приносить бедствие в общество."
-    
+    stop music
     python:
         name = renpy.input("Меня зовут...")
         name = name.strip()
@@ -127,7 +127,7 @@ label village_prolog:
 
 label first_act:
     scene black
-    "{fi}-Воспоминания потеряны-{/fi}"
+    "{fi}Воспоминания потеряны{/fi}"
     scene winter_forest with Dissolve(.5)
     me "..."
     me "Что это за место? Я только что был в ..."
