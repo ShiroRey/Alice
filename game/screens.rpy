@@ -104,7 +104,7 @@ screen say(who, what):
 
             window:
                 id "namebox"
-                xpos 0.45
+                xpos 0.2
                 style "namebox"
                 text who id "who"
 
