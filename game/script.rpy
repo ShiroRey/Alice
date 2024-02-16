@@ -13,17 +13,17 @@ define me = Character('[name]', color="#770000")
 # Игра начинается здесь:
 
 # Логотип в начале
-label splashscreen:
-    scene black with Dissolve(1.0)
-    pause 0.5
-
-    scene logo2 with Dissolve(1.5)
-    pause 1.0
-
-    scene black with Dissolve(1.0)
-    pause 0.5
-
-    return
+#label splashscreen:
+#    scene black with Dissolve(1.0)
+#    pause 0.5
+#
+#    scene logo2 with Dissolve(1.5)
+#    pause 1.0
+#
+#    scene black with Dissolve(1.0)
+#    pause 0.5
+#
+#    return
     
 label start:
     stop music

@@ -12,7 +12,7 @@
 ##
 ## Символы "_()", окружающие название, отмечают его как пригодное для перевода.
 
-define config.name = _("Alice in the \n Underworld")
+define config.name = _("Alice\nin the\nUnderworld")
 
     
 ## Определяет, показывать ли заголовок, данный выше, на экране главного меню.

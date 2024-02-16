@@ -104,7 +104,6 @@ screen say(who, what):
 
             window:
                 id "namebox"
-                xpos 0.2
                 style "namebox"
                 text who id "who"
 
@@ -286,29 +285,30 @@ style quick_button_text:
 ## Этот экран включает в себя главное и игровое меню, и обеспечивает навигацию к
 ## другим меню и к началу игры.
 
+#Навигация
 screen navigation():
 
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        xalign 0.07
+        yalign 0.6
 
         spacing gui.navigation_spacing
 
         if main_menu:
-
-            textbutton _("Начать") action Start()
+           
+            textbutton _("Начать") action Start() 
 
         else:
 
-            textbutton _("История") action ShowMenu("history")
+            textbutton _("История") action ShowMenu("history") 
 
-            textbutton _("Сохранить") action ShowMenu("save")
+            textbutton _("Сохранить") action ShowMenu("save") 
 
-        textbutton _("Загрузить") action ShowMenu("load")
+        textbutton _("Загрузить") action ShowMenu("load") 
 
-        textbutton _("Настройки") action ShowMenu("preferences")
+        textbutton _("Настройки") action ShowMenu("preferences") 
 
         if _in_replay:
 
@@ -319,6 +319,7 @@ screen navigation():
             textbutton _("Главное меню") action MainMenu()
 
         textbutton _("Об игре") action ShowMenu("about")
+          
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -340,6 +341,7 @@ style navigation_button:
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
+    xalign 0.5
     properties gui.button_text_properties("navigation_button")
 
 
@@ -364,7 +366,7 @@ screen main_menu():
     ## Оператор use включает отображение другого экрана в данном. Актуальное
     ## содержание главного меню находится на экране навигации.
     use navigation
-
+    
     if gui.show_name:
 
         vbox:
@@ -386,15 +388,12 @@ style main_menu_version is main_menu_text
 style main_menu_frame:
     xsize 420
     yfill True
-
     background "gui/overlay/main_menu.png"
-
 #Название игры
 style main_menu_vbox:
-    xalign 0.025
-    xoffset -30
+    xalign 0.03
     xmaximum 1200
-    yalign 0.1
+    yalign 0.15
     yoffset -30
 
 style main_menu_text:
