@@ -140,7 +140,7 @@ style window:
 
 style namebox:
     xpos gui.name_xpos
-    xanchor gui.name_xalign
+    xanchor gui.name_xalign 
     xsize gui.namebox_width
     ypos gui.name_ypos
     ysize gui.namebox_height
@@ -291,7 +291,7 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xalign 0.07
+        xalign 0.065
         yalign 0.6
 
         spacing gui.navigation_spacing
