@@ -1,9 +1,9 @@
 ﻿# Вы можете расположить сценарий своей игры в этом файле.
 
 # Определение персонажей игры.
-define a = Character('Алиса', color="#ff809b")
+define a = Character('Алиса', color="#000000")
 
-define me = Character('[name]', color="#770000")
+define me = Character('[name]', color="#ffffff")
 
 # Вместо использования оператора image можете просто
 # складывать все ваши файлы изображений в папку images.
@@ -30,7 +30,7 @@ label start:
     scene black with Dissolve(1.5)
     #play sound "typewriter.mp3" fadein 1
     "XVII век."
-     
+    a "hi"
     
     scene ink with Dissolve(1.5)
     #play music "hor.mp3" fadein 1

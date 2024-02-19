@@ -33,7 +33,7 @@ define gui.idle_color = '#750006'
 
 ## Small_color используется в маленьком тексте, который должен быть ярче/темнее,
 ## для того, чтобы выделяться.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#46464d'
 
 ## Цвет, используемых в кнопках и панелях, когда они наведены.
 define gui.hover_color = '#ffffff'
