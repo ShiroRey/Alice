@@ -118,7 +118,7 @@ define gui.name_xalign = 0.5
 
 ## Ширина, высота и границы окна, содержащего имя персонажа или None, для
 ## автоматической размерки.
-define gui.namebox_width = 300
+define gui.namebox_width = 100
 define gui.namebox_height = 65
 
 ## Границы окна, содержащего имя персонажа слева, сверху, справа и снизу по
