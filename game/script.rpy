@@ -4,9 +4,11 @@ define a = Character('Алиса', color="#ffffff")
 
 define me = Character('[name]', color="#ffffff")
 
-define father = Character('Отец')
+define father = Character('Отец', color="#ffffff")
 
-define inc = Character('Инквизитор')
+define inc = Character('Инквизитор', color="#ffffff")
+
+define unc = Character('Неизвестный голос', color="#ffffff")
 
 style test_style:
     color "#b3000f"
@@ -50,8 +52,7 @@ label start:
     "Это был темный период в истории, когда люди считали, что ведьмы и колдуны обладают сверхъестественными способностями и могут приносить бедствие в общество."
     
     stop music fadeout 2.0
-    #Добавить сцену для гг
-    scene black with Dissolve(1.5)
+    scene villagegg with Dissolve(1.5)
     python:
         name = renpy.input("Меня зовут...")
         name = name.strip()
@@ -65,86 +66,117 @@ label start:
     scene black with Dissolve(.5)
     stop sound fadeout 2.0
 
+    scene villagegg with Dissolve(1.5)
     "Так прошли двадцать лет моей жизни, как серая река времени, но их течение было медленным, тяжелым, будто душа моя была заключена в мраке..."
-    scene house with Dissolve(.5)
+    scene housegg with Dissolve(.5)
     "После заключительных звонков в воскресной школе, отец, используя свои связи, направил меня в инквизицию."
 
+    show father
     father "Ты завтра вступаешь в должность инквизитора, это не обсуждается."
     "В тот момент мне было всё равно, чем заниматься, и я бездумно согласился."
     me "Да, отец..."
     scene black with Dissolve(.5)
     "Но..."
+    "Я ошибался."
     "Среди теней инквизиции, я осознал, что эта 'работа' была явно не тем, чем я хотел заниматься."
     scene reznya
-    "Мне приходилось убивать множество людей, и, возможно, многие из них были невиновными в тех обвинениях, которые на них повесили."
+    "Мне приходилось убивать множество людей, и, возможно, многие из них были невиновными в тех обвинениях, которые им назначила церковь."
     "Но мои руки были связаны, ибо отступление было смертельным грехом — мне грозило оказаться в числе еретиков, чьи костры уже были зажжены."
-    "Поэтому я смирился"
+    "Поэтому я смирился."
+    scene black with Dissolve(.5)
     "Нет."
     "Мне пришлось смириться."
-    scene black with Dissolve(.5)
-    scene povozka
+    play music povozka loop fadeout 0.0 fadein 2.0
+    scene povozka with Dissolve(.5)
     "Сегодня поступил 'заказ'."
-    inc "[name], мы должны поймать девушку из одной деревни деревни примерно в двух днях пути отсюда, о ней начали разносится странные слухи среди соседей."
+    inc "[name], мы должны поймать девушку из одной деревни примерно в двух днях пути отсюда, о ней начали разносится странные слухи среди соседей."
     inc "Странный цвет глаз и волос стали поводом для нашего приезда сюда. Мы должны найти ее сегодня, завтра утром ее уже не должно существовать."
     inc "Ты понял?"
     "Как жестоко"
-    "И даже при всей нелепости этих слухов, мы вынуждены отправляться в самые отдаленные уголки этого безысходного мира."
+    "И даже при всей нелепости этих слухов, мы вынуждены отправляться в такую дыру."
     me "*Вздох* Надоело..."
     inc "Я бы на твоем месте не говорил таких слов при остальных, на этот раз я закрою глаза."
     inc "Но следующего раза не будет."
     me "Да, я понял, извините."
+    stop music fadeout 2.0
+
 
     scene black with Dissolve(.5)
     centered "{fi=1-1-1}Два дня спустя...{/fi}"
 
-    scene village
 
-    scene village_after with Dissolve(.5)
-    me "Хмм, вроде они живут где то тут."
-    "Я должен оповестить ее семью что сожжение пройдет завтра утром перед площадью."
-    "*Тук* *Тук* *Тук*"
-    #Добавить арт двери
-    me "Есть кто дома?"
-    "*Тишина*"
+    scene villagea with Dissolve(.5)
+    me "Наконец то мы приехали, ехать в этой повозке невозможно."
+    inc "Хватит жаловаться. Найди дом этой девчонки и оповести их семью что завтра утром пройдет сожжение."
+    inc "Мы с остальными будем подготавливать площадь."
+    me "Ладно ладно. Пойду искать ее дом."
+
     scene black with Dissolve(.5)
-    me "*Вздох* Неужели сбежала?"
-    "Нужно найти ее, иначе у меня будут проблемы..."
+    centered "{fi=1-1-1}Пару часов спустя...{/fi}"
 
-    $ visited_pier = False
-    $ visited_square = False
+    scene door1 with Dissolve(.5)
+    "Так, это вроде бы тот дом..."
+    play sound stuk 
+    me "Есть кто дома?"
+    unc "Секунду!"
+    scene door2 with Dissolve(.5)
+    scene houseainside with Dissolve(.5)
+    show alicen with Dissolve(.5)
+    a "Здравствуйте, вы к кому?"
+    me "Это вы Алиса Грей?"
+    a "Да, это я. Вы что то хотели?"
+    me "Меня зовут [name]. Я обращаюсь к вам от имени святой инквизиции, вы обвиняетесь в ереси, и должны предстать перед святым судом инквизиции и очистить свои грехи."
+    show alices with Dissolve(.5)
+    a "Что..."
+    a "НО Я НИЧЕГО НЕ ДЕЛАЛА!"
+    me "У церкови другое мнение на этот счет."
+    me "У вас есть время до завтрашнего утра. Советую попрощаться с родными..."
+    me "Утром мы придем за вами. До свидания."
+    scene door1 with Dissolve(.5)
+    me "*Вздох*"
 
-    label menu_cross:
-    menu:
-        "Куда мне идти?"
-        "На пристань":
-            if visited_pier:
-                me "Я здесь уже был..."
-            else:
-                scene
-                me "Никого нет"
-                $ visited_pier = True
-            jump menu_cross
 
-        "В поле":
-            me "Похоже она где то здесь"
-            jump final_prolg
 
-        "На площадь":
-            if visited_square:
-                me "Я здесь уже был..."
-            else: 
-                scene
-                me "Не думаю что она придет сюда, ведь завтра здесь ее должны казнить"
-                $ visited_square = True
-            jump menu_cross
+
+
+
+
+
+
+
+
+#$ visited_pier = False
+#$ visited_square = False
+#label menu_cross:
+#menu:
+#    "Куда мне идти?"
+#    "На пристань":
+#        if visited_pier:
+#            me "Я здесь уже был..."
+#        else:
+#            scene
+#            me "Никого нет"
+#            $ visited_pier = True
+#        jump menu_cross
+#    "В поле":
+#        me "Похоже она где то здесь"
+#        jump final_prolg
+#    "На площадь":
+#        if visited_square:
+#            me "Я здесь уже был..."
+#        else: 
+#            scene
+#            me "Не думаю что она придет сюда, ведь завтра здесь ее должны казнить"
+#            $ visited_square = True
+#        jump menu_cross
 
 
 #ПОТОМ
-label final_prolg:
-    play music "rain.mp3" fadein 1
-    scene field2 with Dissolve(.5)
-    "Как она собралась убежать в такую погоду?"
-    ""
+#label final_prolg:
+#    play music "rain.mp3" fadein 1
+#    scene field2 with Dissolve(.5)
+#    "Как она собралась убежать в такую погоду?"
+#    ""
 
 #label village_prolog:
 #    play music "birds.mp3" fadein 1 
@@ -175,25 +207,18 @@ label final_prolg:
 #    stop music fadeout 1
 
 
-label first_act:
-    scene black
-    "{fi=1-1-1}Воспоминания потеряны...{/fi}"
-    scene winter_forest with Dissolve(.5)
-    me "..."
-    me "Странно."
-    me "Почему я не могу вспомнить?"
-    "Я огляделся вокруг, но понял что меня окружает только лес."
-
-
-
-
-
-label village_after:
-    scene black with Dissolve(0.5)
-    "{sc}{=test_style}Забавно{/=test_style}{/sc}"
-    scene winter_forest with Dissolve(0.5)
-
-    scene hunter_house with Dissolve(0.5)
+#label first_act:
+#    scene black
+#    "{fi=1-1-1}Воспоминания потеряны...{/fi}"
+#    scene winter_forest with Dissolve(.5)
+#    
+#
+#
+#    scene black with Dissolve(0.5)
+#    "{sc}{=test_style}Забавно{/=test_style}{/sc}"
+#    scene winter_forest with Dissolve(0.5)
+#
+#    scene hunter_house with Dissolve(0.5)
 
 
 
