@@ -21,17 +21,17 @@ style test_style:
 # Игра начинается здесь:
 
 # Логотип в начале(Доделать)
-#label splashscreen:
-#    scene black with Dissolve(1.0)
-#    pause 0.5
-#
-#    scene logo2 with Dissolve(1.5)
-#    pause 0.5
-#
-#    scene black with Dissolve(1.0)
-#    pause 0.5
-#
-#    return
+label splashscreen:
+    scene black with Dissolve(1.0)
+    pause 0.5
+
+    scene logo2 with Dissolve(1.5)
+    pause 0.5
+
+    scene black with Dissolve(1.0)
+    pause 0.5
+
+    return
 
 
 #label shiza:
@@ -123,7 +123,7 @@ label start:
     scene houseainside with Dissolve(.5)
     show alicen with Dissolve(.5)
     a "Здравствуйте, вы к кому?"
-    me "Это вы Алиса Грей?"
+    me "Это вы Алиса Грей?" #Фамилия под вопросом
     a "Да, это я. Вы что то хотели?"
     me "Меня зовут [name]. Я обращаюсь к вам от имени святой инквизиции, вы обвиняетесь в ереси, и должны предстать перед святым судом инквизиции и очистить свои грехи."
     show alices with Dissolve(.5)

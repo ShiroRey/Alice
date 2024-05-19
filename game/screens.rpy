@@ -290,9 +290,13 @@ screen navigation():
 
     vbox:
         style_prefix "navigation"
-
-        xalign 0.065
-        yalign 0.6
+        
+        if renpy.get_screen("main_menu"):
+            yalign 0.7
+            xalign 0.5
+        else:
+            xalign 0.065
+            yalign 0.5
 
         spacing gui.navigation_spacing
 
@@ -301,7 +305,7 @@ screen navigation():
             textbutton _("Начать") action Start() 
 
         else:
-
+            
             textbutton _("История") action ShowMenu("history") 
 
             textbutton _("Сохранить") action ShowMenu("save") 
@@ -389,12 +393,12 @@ style main_menu_frame:
     xsize 420
     yfill True
     background "gui/overlay/main_menu.png"
+
 #Название игры
 style main_menu_vbox:
-    xalign 0.03
-    xmaximum 1200
-    yalign 0.15
-    yoffset -30
+    xalign 0.5
+    yalign 0.3
+
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
