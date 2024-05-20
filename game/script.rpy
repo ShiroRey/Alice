@@ -12,6 +12,10 @@ define unc = Character('Неизвестный голос', color="#ffffff")
 
 style test_style:
     color "#b3000f"
+init:
+    $ morality = 0 # задаём количество очков морали
+    $ mind = 100 # задаём количество очков рассудка
+    # centered "{sc}{=test_style}Рассудок потерян...{/sc}"
 
 # Вместо использования оператора image можете просто
 # складывать все ваши файлы изображений в папку images.
@@ -42,6 +46,7 @@ label splashscreen:
 label start:
     stop music
     scene black with Dissolve(1.5)
+    centered "{fi=1-1-1}Глава 1: Темные узы инквизиции.{/fi}"
     play sound "typewriter.mp3" fadeout 0.0 fadein 2.0
     "XVII век."
     stop sound fadeout 2.0
@@ -50,13 +55,13 @@ label start:
     scene ink with Dissolve(1.5)
     "Инквизиция была организацией, чьей главной целью являлась борьба с черной магией и ересью, ведущая массовые расследования и проведение судебных процессов во времена Средневековья."
     "Это был темный период в истории, когда люди считали, что ведьмы и колдуны обладают сверхъестественными способностями и могут приносить бедствие в общество."
-    
+    scene black with Dissolve(1.5)
     stop music fadeout 2.0
-    scene villagegg with Dissolve(1.5)
     python:
         name = renpy.input("Меня зовут...")
         name = name.strip()
-    
+    scene villagegg with Dissolve(1.5)
+
 
     "Я был всего лишь обычным парнем, выросшим среди деревенских дорог, далеко от блеска столицы."
     "С течением лет, как тяжелый туман, депрессия поглотила мою душу. Всё становилось темным, как будто тени одиночества поглотили меня, оставив за собой лишь тусклый свет."
@@ -132,8 +137,46 @@ label start:
     me "У церкови другое мнение на этот счет."
     me "У вас есть время до завтрашнего утра. Советую попрощаться с родными..."
     me "Утром мы придем за вами. До свидания."
+
+
+    label menu_cross1:
+    menu:
+        me "Хотя... знаешь..."
+        "Тебе лучше сбежать":
+            $ morality + 1
+            "Она молча посмотрела на меня и закрыла дверь. На секунду я увидел свет в ее глазах. "
+            $ choice1 = True
+        "Ничего, забудь":
+            scene black with Dissolve(.5) 
+            centered "{sc}{=test_style}Мораль потеряна...{/sc}"
+            $ renpy.pause(1.5, hard=True)
+            $ morality - 1
+            $ choice1 = False
+            a "Хватит, уходи... "
+        
+
+
+
+
     scene door1 with Dissolve(.5)
     me "*Вздох*"
+    me "Все же это слишком тяжело."
+    "Покинув дом Алисы, я медленно направился обратно к лагерю. В голове теснились мысли о предстоящем суде."
+    "Я никогда не был уверен в справедливости наших действий, но я уже давно перестал бороться с внутренними сомнениями."
+    scene black with Dissolve(1.5)
+    centered "{fi=1-1-1}На следующий день...{/fi}"
+    #Дом Алисы
+    inc "Все готовы?"
+    me "Да, сэр."
+    "Мы подошли к двери и постучали."
+    #Звук двери
+    me "Похоже дверь открыта."
+    inc "Тогда заходим"
+    scene houseainside with Dissolve(.5)
+    "Тут никого нет..."
+    inc "[name], и где же она? Ты отвечаешь за нее."
+    me "Я без понятия."
+    inc "Или ты решил помочь ей?"
 
 
 
@@ -144,6 +187,28 @@ label start:
 
 
 
+
+
+
+
+    #Мысли гг о выборе
+    #if choice1 == True:
+    #    me "da"
+    #else:
+    #    me "ne"
+
+
+
+
+#ПОТОМ
+    label final_prolg:
+        play music "rain.mp3" fadein 1
+        scene field2 with Dissolve(.5)
+        "Как она собралась убежать в такую погоду?"
+        ""
+
+
+centered "{fi=1-1-1}Два дня спустя...{/fi}"
 
 #$ visited_pier = False
 #$ visited_square = False
@@ -171,12 +236,6 @@ label start:
 #        jump menu_cross
 
 
-#ПОТОМ
-#label final_prolg:
-#    play music "rain.mp3" fadein 1
-#    scene field2 with Dissolve(.5)
-#    "Как она собралась убежать в такую погоду?"
-#    ""
 
 #label village_prolog:
 #    play music "birds.mp3" fadein 1 
@@ -208,21 +267,33 @@ label start:
 
 
 #label first_act:
-#    scene black
+#    scene black 
 #    "{fi=1-1-1}Воспоминания потеряны...{/fi}"
+#    ""
 #    scene winter_forest with Dissolve(.5)
 #    
 #
 #
-#    scene black with Dissolve(0.5)
-#    "{sc}{=test_style}Забавно{/=test_style}{/sc}"
-#    scene winter_forest with Dissolve(0.5)
+#    
+#    
+#    
 #
-#    scene hunter_house with Dissolve(0.5)
+#    scene black with Dissolve(0.5)
 
 
 
-
+#label menu_cross:
+#menu:
+#    "Убить его?"
+#    "Да":
+#        $ shiza + 2
+#        $ print(shiza)
+#        if shiza > 0:
+#            me "Это конец"
+#            "{fi=1-1-1}Воспоминания потеряны...{/fi}"
+#            
+#        else:
+#            jump start
 
 
 
